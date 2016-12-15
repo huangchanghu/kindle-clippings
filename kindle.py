@@ -5,6 +5,10 @@ import collections
 import json
 import os
 import re
+import sys
+
+reload(sys)
+sys.setdefaultencoding("utf-8")
 
 BOUNDARY = u"==========\r\n"
 DATA_FILE = u"clips.json"
@@ -67,7 +71,7 @@ def save_clips(clips):
     Save new clips to DATA_FILE
     """
     with open(DATA_FILE, 'wb') as f:
-        json.dump(clips, f)
+        json.dump(clips, f, ensure_ascii=False)
 
 
 def main():
